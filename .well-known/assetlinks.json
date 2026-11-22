@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "br.com.mocto.oeuaqui",
+      "sha256_cert_fingerprints": [
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C",
+        "8C:B6:E5:C6:E5:E9:8C:60:7D:EA:D5:86:2E:A6:1D:AC:23:3B:A7:2A:ED:BF:46:58:CE:0D:0E:70:D2:FE:A5:7C"
+      ]
+    }
+  }
+]

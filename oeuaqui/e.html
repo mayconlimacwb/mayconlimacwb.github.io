@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Sem nenhum recurso externo, sem cookies e sem analytics. O código do convite fica depois do "#",
+     que o navegador nunca manda ao servidor; o JS só lê location.hash e não decodifica nada. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>Convite do Ó Eu Aqui!</title>
+<link rel="stylesheet" href="../estilo.css">
+<script src="e.js" defer></script>
+</head>
+<body>
+<main>
+  <p class="marca">Ó Eu Aqui!</p>
+
+  <section id="convite" hidden>
+    <div class="cartao">
+      <h1>Você foi convidado para um grupo</h1>
+      <p class="suave">Abra no app para ver o nome do grupo, a placa e o ponto de encontro.</p>
+      <a id="abrir" class="botao principal" href="oeuaqui://e">Abrir no app Ó Eu Aqui!</a>
+      <button id="copiar" class="botao secundario" type="button">Copiar código</button>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <p class="suave">Se o app não abrir: copie o código e abra o Ó Eu Aqui! — ele acha o convite copiado sozinho.</p>
+      <label class="suave" for="codigo">Código do convite</label>
+      <textarea id="codigo" class="codigo" rows="3" readonly></textarea>
+    </div>
+  </section>
+
+  <section id="invalido" hidden>
+    <div class="cartao">
+      <h1>Esse convite não veio inteiro</h1>
+      <p class="suave">O link chegou cortado ou vazio. Peça para quem te convidou mandar o convite de novo, ou mostrar o QR do grupo para você ler no app.</p>
+    </div>
+  </section>
+
+  <noscript>
+    <div class="cartao">
+      <p>Para abrir o convite, ligue o JavaScript ou abra o app Ó Eu Aqui! e toque em Entrar com código.</p>
+    </div>
+  </noscript>
+
+  <div class="cartao">
+    <h1>Ainda não tem o app?</h1>
+    <p class="suave">O Ó Eu Aqui! ainda não está nas lojas. Peça o arquivo de instalação a quem te convidou e depois toque no convite de novo.</p>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/* Página de convites do Ó Eu Aqui! — mesmas cores do app (tema escuro, design.md §4). Sem fonte externa. */
+:root {
+  --fundo: #0e0b16;
+  --superficie: #1a1526;
+  --texto: #f6f2ff;
+  --suave: #b9b0cc;
+  --marca: #ffd23f;
+  --sobre-marca: #16131d;
+  --borda: #7d7393;
+  --foco: #7fe7ff;
+  --erro: #ff7a7a;
+  --ok: #4be38e;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--fundo); color: var(--texto); }
+body {
+  font: 17px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: max(24px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+}
+main { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 16px; }
+.marca { font-weight: 800; font-size: 30px; line-height: 1.15; margin: 8px 0 0; color: var(--marca); letter-spacing: -0.5px; }
+h1 { font-size: 22px; line-height: 1.25; margin: 0; }
+p { margin: 0; }
+.suave { color: var(--suave); font-size: 15px; }
+.cartao { background: var(--superficie); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.botao {
+  display: block; width: 100%; min-height: 56px; padding: 14px 16px; border-radius: 16px;
+  font: inherit; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer;
+  border: 2px solid var(--marca);
+}
+.principal { background: var(--marca); color: var(--sobre-marca); }
+.secundario { background: transparent; color: var(--texto); border-color: var(--borda); }
+.botao:focus-visible { outline: 3px solid var(--foco); outline-offset: 3px; }
+.codigo {
+  width: 100%; font: 13px/1.4 ui-monospace, Menlo, Consolas, monospace; color: var(--suave);
+  background: var(--fundo); border: 1px solid var(--borda); border-radius: 10px; padding: 10px; resize: none;
+}
+.status { min-height: 1.5em; font-size: 15px; color: var(--ok); }
+.erro { color: var(--erro); }
+[hidden] { display: none !important; }
+/* Política e Termos (privacidade.html, termos.html) */
+main.legal { max-width: 760px; gap: 12px; min-width: 0; overflow-wrap: anywhere; }
+main.legal > * { min-width: 0; max-width: 100%; }
+main.legal h2 { font-size: 19px; margin: 16px 0 0; color: var(--marca); }
+main.legal ul, main.legal ol { margin: 0; padding-left: 22px; }
+main.legal li { margin: 4px 0; }
+main.legal a { color: #8fd8ff; }
+.tabela { overflow-x: auto; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { border: 1px solid var(--borda); padding: 8px; text-align: left; vertical-align: top; }
+th { background: var(--superficie); }
+mark.preencher { background: #ffd23f; color: #16131d; font-weight: 700; padding: 0 3px; border-radius: 4px; }
+.aviso-preencher { border: 2px dashed var(--marca); border-radius: 12px; padding: 12px; }
+code { font-family: ui-monospace, Menlo, Consolas, monospace; }
