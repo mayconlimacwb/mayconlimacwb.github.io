@@ -17,6 +17,14 @@
     document.getElementById(id).hidden = false;
   }
 
+  // Ó Eu Aqui! só existe para Android por enquanto: no iPhone/iPad, explica e dá a alternativa (placa + ponto pelo WhatsApp).
+  var ua = navigator.userAgent || '';
+  var ehApple = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  if (ehApple) {
+    mostrar('iphone');
+    return;
+  }
+
   if (!valido) {
     mostrar('invalido');
     return;
