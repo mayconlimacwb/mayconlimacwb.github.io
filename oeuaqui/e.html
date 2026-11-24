@@ -14,18 +14,21 @@
 </head>
 <body>
 <main>
-  <p class="marca">Ó Eu Aqui!</p>
+  <p class="marca"><img src="logo.png" alt="" width="56" height="56" class="logo"> Ó Eu Aqui!</p>
 
   <section id="convite" hidden>
     <div class="cartao">
-      <h1>Você foi convidado para um grupo</h1>
-      <p class="suave">Abra no app para ver o nome do grupo, a placa e o ponto de encontro.</p>
+      <h1>Você foi convidado para um grupo do Ó Eu Aqui!</h1>
+      <p>O app ajuda vocês a se acharem durante o show ou o evento, mesmo sem internet: cada grupo tem o seu sinal, um radar e um ponto de encontro.</p>
       <a id="abrir" class="botao principal" href="oeuaqui://e">Abrir no app Ó Eu Aqui!</a>
       <button id="copiar" class="botao secundario" type="button">Copiar código</button>
       <p id="status" class="status" role="status" aria-live="polite"></p>
-      <p class="suave">Se o app não abrir: copie o código e abra o Ó Eu Aqui! — ele acha o convite copiado sozinho.</p>
-      <label class="suave" for="codigo">Código do convite</label>
-      <textarea id="codigo" class="codigo" rows="3" readonly></textarea>
+      <textarea id="codigo" class="codigo-oculto" rows="1" readonly aria-hidden="true" tabindex="-1"></textarea>
+    </div>
+    <div class="cartao">
+      <h2>Ainda não tem o app?</h2>
+      <p class="suave">Por enquanto o Ó Eu Aqui! é só para Android. Instale pela Google Play e depois toque no convite de novo.</p>
+      <a class="botao secundario" href="https://play.google.com/store/apps/details?id=br.com.mocto.oeuaqui" rel="noopener">Baixar na Google Play</a>
     </div>
   </section>
 
@@ -33,7 +36,7 @@
     <div class="cartao">
       <h1>No iPhone ainda não dá</h1>
       <p class="suave">Por enquanto o Ó Eu Aqui! é só para Android. Estamos preparando a versão para iPhone.</p>
-      <p class="suave">Até lá: peça para quem te convidou mandar a imagem da placa do grupo. No show, procure essa placa e combine o ponto de encontro pelo WhatsApp.</p>
+      <p class="suave">Até lá: peça para quem te convidou mandar a imagem do sinal do grupo. No show, procure esse sinal e combine o ponto de encontro pelo WhatsApp.</p>
     </div>
   </section>
 
@@ -50,10 +53,6 @@
     </div>
   </noscript>
 
-  <div class="cartao">
-    <h1>Ainda não tem o app?</h1>
-    <p class="suave">Por enquanto o Ó Eu Aqui! é só para Android. Peça o link de instalação a quem te convidou e depois toque no convite de novo.</p>
-  </div>
 </main>
 </body>
 </html>
