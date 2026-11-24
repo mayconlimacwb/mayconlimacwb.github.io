@@ -1,9 +1,10 @@
 // Página do convite (AJ-04 parte 2). Lê SÓ o fragmento (location.hash): ele nunca vai ao servidor.
-// Valida só o prefixo OEA1 e os caracteres; não decodifica o convite (quem valida é o app).
+// Valida só o prefixo (OEA1 antigo ou OEA2 compacto, AJ-26) e os caracteres; não decodifica o convite (quem
+// valida é o app). OEA2 só é lido pelo app 1.3+: a página avisa para atualizar (o 1.2.x lê o aviso OEA1 v:2 do link e pede para atualizar).
 /* global location, document */
 'use strict';
 (function () {
-  var PREFIXO = 'OEA1.';
+  var PREFIXOS = ['OEA1.', 'OEA2.'];
   var MAX = 4096;
   var bruto = '';
   try {
@@ -11,7 +12,11 @@
   } catch {
     bruto = '';
   }
-  var valido = bruto.length > PREFIXO.length && bruto.length <= MAX && bruto.indexOf(PREFIXO) === 0 && /^[A-Za-z0-9._-]+$/.test(bruto);
+  var prefixo = bruto.slice(0, 5);
+  var valido = bruto.length > 5 && bruto.length <= MAX && PREFIXOS.indexOf(prefixo) >= 0 && /^[A-Za-z0-9._-]+$/.test(bruto);
+  // OEA2: um só bloco base64url depois do prefixo, com no mínimo 64 bytes (57 fixos + 3 tamanhos + 4 de checksum).
+  var i2 = bruto.indexOf('OEA2.');
+  if (valido && i2 >= 0 && !/^[A-Za-z0-9_-]{86,}$/.test(bruto.slice(i2 + 5))) valido = false;
 
   function mostrar(id) {
     document.getElementById(id).hidden = false;
@@ -31,6 +36,7 @@
   }
 
   mostrar('convite');
+  if (bruto.indexOf('OEA2.') >= 0) mostrar('atualizar'); // só o app 1.3+ lê o OEA2
   var abrir = document.getElementById('abrir');
   var copiar = document.getElementById('copiar');
   var campo = document.getElementById('codigo');
